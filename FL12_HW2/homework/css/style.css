@@ -7,7 +7,7 @@
     background: linear-gradient(to right, lightskyblue, burlywood);
   }
   .tm-banner-inner {
-    background-color: white;
+    background-color: white; 
   }
   .tm-banner-text {
     text-shadow: #333 5px 5px 3px;
@@ -34,6 +34,7 @@
   }
   .tm-box-bg-title:hover {
     background: lightgrey;
+    font-style: italic;
   }
   .tm-content-box .padding-medium h2 {
     text-align: center;
@@ -87,6 +88,10 @@
   }
   #contact textarea {
     border: 1px solid lightskyblue;
+    min-height: 3em;
+  }
+  #contact textarea:focus {
+    box-shadow: none;
   }
   #contact h2 {
     text-align: left;
@@ -99,9 +104,9 @@
     width: 100px;
     float: right;
   }
-  .contact-form div:nth-child(4) {
+   .contact-form div:nth-child(4) {
     position: relative;
-  }
+    } 
   .contact-form div:nth-child(4)::after {
     content: "";
     background-image: url('../img/email-icon.png');
