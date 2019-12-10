@@ -1,0 +1,188 @@
+@media screen {
+  .tm-nav-item-link:hover {
+    color: aliceblue;
+    background-color: lightskyblue;
+  }
+  .tm-banner {
+    background: linear-gradient(to right, lightskyblue, burlywood);
+  }
+  .tm-banner-inner {
+    background-color: white;
+  }
+  .tm-banner-text {
+    text-shadow: #333 5px 5px 3px;
+    position: relative;
+    animation: bannerSlide 4s;
+  }
+  @keyframes bannerSlide {
+    from {
+      left: 200px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+  .flex-2-col {
+    display: flex;
+    align-items: center;
+  }
+  .tm-section-description {
+    text-indent: 25px;
+  }
+  .tm-section-title {
+    text-align: center;
+  }
+  .tm-box-bg-title:hover {
+    background: lightgrey;
+  }
+  .tm-content-box .padding-medium h2 {
+    text-align: center;
+    color: lightskyblue
+  }
+  .tm-content-box ol {
+    list-style: lower-alpha;
+  }
+  .tm-content-box ol li:hover::before {
+    content: ">";
+  }
+  a.text::after {
+    content: "New";
+    color: red;
+    font-size: 75%;
+    font-weight: bold;
+    vertical-align: super;
+    display: inline-block;
+  }
+  .blocks .tm-team-description-container :nth-child(3) {
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    font-style: italic;
+  }
+  .blocks .tm-team-description-container :nth-child(1) {
+    text-align: left;
+  }
+  .blocks li {
+    padding: 10px;
+  }
+  .blocks li:nth-child(odd) {
+    color: white;
+    background: lightskyblue;
+  }
+  .blocks li p::first-letter {
+    font-weight: 700;
+  }
+  .blocks li p {
+    font-style: italic;
+  }
+  .tm-section-description {
+    text-indent: 25px;
+    line-height: 30px;
+  }
+  #contact input {
+    border: none;
+    border-bottom: 1px solid lightskyblue;
+  }
+  #contact input:focus {
+    background: lightskyblue;
+  }
+  #contact textarea {
+    border: 1px solid lightskyblue;
+  }
+  #contact h2 {
+    text-align: left;
+  }
+  .submit-btn {
+    border-color: lightskyblue;
+    background-color: #fff;
+    color: lightskyblue;
+    height: 50px;
+    width: 100px;
+    float: right;
+  }
+  .contact-form div:nth-child(4) {
+    position: relative;
+  }
+  .contact-form div:nth-child(4)::after {
+    content: "";
+    background-image: url('../img/email-icon.png');
+    background-repeat: no-repeat;
+    background-size: 2em;
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .tm-sidebar,
+  #home,
+  section {
+    box-shadow: 0px 0px 10px rgba(61, 55, 61, 0.7)
+  }
+  section::before {
+    content: "";
+    border-right: 45px solid transparent;
+    border-top: 45px solid lightskyblue;
+  }
+}
+@media print {
+  .tm-sidebar,
+  .tm-team-img,
+  #about,
+  .gallery-container,
+  .carousel-indicators,
+  .tm-main-content section:last-of-type {
+    display: none;
+  }
+  .container {
+    max-width: 720px;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    text-align: center;
+    color: lightskyblue;
+  }
+  p {
+    text-align: center;
+  }
+  .flex-2-col,
+  #home,
+  .tm-content-box {
+    margin-bottom: 0;
+  }
+  .tm-team-description-container {
+    max-width: 100%;
+  }
+  .tm-main-content,
+  #tmCarousel,
+  .padding-medium {
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+  .blocks .tm-team-description-container :nth-child(3) {
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    font-style: italic;
+  }
+  .blocks,
+  footer {
+    background: #fff;
+  }
+  .tm-content-box ol li {
+    list-style-type: none;
+    color: lightskyblue;
+  }
+  .tm-content-box a,
+  footer a {
+    color: lightskyblue;
+    font-weight: 500;
+  }
+  .tm-content-box ol li:nth-child(odd) {
+    margin-right: 50px;
+    text-align: right;
+  }
+  ol {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
