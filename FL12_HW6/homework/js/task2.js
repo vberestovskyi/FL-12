@@ -1,20 +1,16 @@
 let doesExist = true;
-let a = prompt('Enter length for triangular "A" side', '');
-let b = prompt('Enter length for triangular "B" side', '');
-let c = prompt('Enter length for triangular "C" side', '');
+const a = +prompt('Enter length for triangular "A" side', '');
+const b = +prompt('Enter length for triangular "B" side', '');
+const c = +prompt('Enter length for triangular "C" side', '');
 
-if (!isFinite(a) || !a || !isFinite(b) || !b || !isFinite(c) || !c) {
+
+if (!isFinite(a) || isNaN(a) || !isFinite(b) || isNaN(b) || !isFinite(c) || isNaN(c)) {
   doesExist = false;
   alert('Input values should be ONLY numbers');
-} else if (parseInt(a) <= 0 || !Number.isInteger(parseFloat(a))|| parseInt(b) <= 0 || 
-!Number.isInteger(parseFloat(b)) || parseInt(c) <= 0 || !Number.isInteger(parseFloat(c))) {
+} else if (a <= 0 || !Number.isInteger(a) || b <= 0 || !Number.isInteger(b) || c <= 0 || !Number.isInteger(c)) {
   doesExist = false;
   alert('A triangle must have 3 sides with a positive definite length');
 }
-
-a = parseInt(a);
-b = parseInt(b);
-c = parseInt(c);
 
 if (!doesExist || c > a + b || b > a + c || a > b + c) {
   console.log('Triangle doesn’t exist');
