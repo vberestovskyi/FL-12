@@ -1,0 +1,84 @@
+@import "variables";
+
+html {
+  font-size: 14px; //to equate font to a mockup
+}
+
+.navbar-light {
+  font-weight: 500;
+
+  .navbar-nav .active {
+    background-color: @blue;
+
+    &>.nav-link {
+      color: @white;
+    }
+  }
+}
+
+.primary-section {
+  &__heading {
+    border-bottom: 1px solid @blue;
+  }
+
+  &__heading,
+  &__card-heading {
+    color: @blue;
+  }
+}
+
+.secondary-section {
+  .secondary-section__heading {
+    border-bottom: 1px solid @blue;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    color: @blue;
+  }
+
+  .secondary-section__container {
+    padding: 15px;
+  }
+
+  .secondary-section__card {
+    &_red {
+      border: 1px solid @red;
+    }
+
+    &_blue {
+      border: 1px solid @blue;
+    }
+
+    &_orange {
+      border: 1px solid @orange;
+    }
+
+    &_green {
+      border: 1px solid @green;
+    }
+
+    &-body {
+      &_red {
+        background-color: @red;
+      }
+
+      &_blue {
+        background-color: @blue;
+      }
+
+      &_orange {
+        background-color: @orange;
+      }
+
+      &_green {
+        background-color: @green;
+      }
+
+      .secondary-section__card-text {
+        color: @white;
+        margin: 10px;
+        text-align: center;
+        font-weight: 500;
+      }
+    }
+  }
+}
