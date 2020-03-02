@@ -4,51 +4,103 @@ let usersArr;
 
 //! Function getUsers()
 function getUsers() {
+  showSpinner('#root')
   fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => {
       usersArr = users;
-      users.forEach(user => displayUser(user))
+      users.forEach(user => displayUser(user));
+      showSpinner('#root')
     });
-
 }
 
 //! Function displayUser
 function displayUser(user) {
   location.hash = '#root';
 
-  const userList = document.createElement('ul');
+  const userList = document.createElement('div');
   userList.setAttribute('id', `user${user.id}`);
   userList.setAttribute('data-id', user.id);
-  userList.setAttribute('title', "Person's details");
+
+
+  const header = document.createElement('h2');
+  header.textContent = `Person's details`;
+  userList.appendChild(header);
 
 
   const avatar = document.createElement('img');
   avatar.setAttribute('id', `avatar${user.id}`);
-  //avatar.setAttribute('src', `http://placekitten.com/g/200/300`);
   getAvatar(user.id);
   userList.appendChild(avatar);
 
-  const name = document.createElement('li');
-  name.textContent = `Name - ${user.name}`;
+  const name = document.createElement('h3');
+  name.textContent = `${user.name}`;
   name.addEventListener('click', showPosts);
   userList.appendChild(name);
 
-  const username = document.createElement('li');
+  const username = document.createElement('div');
   username.textContent = `Username - ${user.username}`;
   userList.appendChild(username);
 
-  const email = document.createElement('li');
+  const email = document.createElement('div');
   email.textContent = `Email - ${user.email}`;
   userList.appendChild(email);
 
-  const phone = document.createElement('li');
+  const phone = document.createElement('div');
   phone.textContent = `Phone - ${user.phone}`;
   userList.appendChild(phone);
 
-  const website = document.createElement('li');
+  const website = document.createElement('div');
   website.textContent = `Website - ${user.website}`;
   userList.appendChild(website);
+
+  const address = document.createElement('h3');
+  address.textContent = `Address`;
+  userList.appendChild(address);
+
+  const street = document.createElement('div');
+  street.textContent = `Street - ${user.address.street}`;
+  userList.appendChild(street);
+
+  const suite = document.createElement('div');
+  suite.textContent = `Suite - ${user.address.suite}`;
+  userList.appendChild(suite);
+
+  const city = document.createElement('div');
+  city.textContent = `City - ${user.address.city}`;
+  userList.appendChild(city);
+
+  const zipcode = document.createElement('div');
+  zipcode.textContent = `Zipcode - ${user.address.zipcode}`;
+  userList.appendChild(zipcode);
+
+  const geo = document.createElement('h3');
+  geo.textContent = `Geolocation`;
+  userList.appendChild(geo);
+
+  const lat = document.createElement('div');
+  lat.textContent = `Latitude - ${user.address.geo.lat}`;
+  userList.appendChild(lat);
+
+  const lng = document.createElement('div');
+  lng.textContent = `Longtitude - ${user.address.geo.lng}`;
+  userList.appendChild(lng);
+
+  const company = document.createElement('h3');
+  company.textContent = `Company info`;
+  userList.appendChild(company);
+
+  const companyName = document.createElement('div');
+  companyName.textContent = `Company Name - ${user.company.name}`;
+  userList.appendChild(companyName);
+
+  const catchPhrase = document.createElement('div');
+  catchPhrase.textContent = `Catch Phrase - ${user.company.catchPhrase}`;
+  userList.appendChild(catchPhrase);
+
+  const bs = document.createElement('div');
+  bs.textContent = `Bs - ${user.company.bs}`;
+  userList.appendChild(bs);
 
   const editButton = document.createElement('button');
   editButton.setAttribute('type', 'button');
@@ -63,11 +115,11 @@ function displayUser(user) {
   userList.appendChild(deleteButton);
 
   root.appendChild(userList);
+
 }
 
 //!Function editUser
 function editUser(event) {
-  showSpinner(`#${event.target.parentNode.id}`);
   location.hash = '#edit';
   root.innerHTML = '';
   const userId = Number(event.target.parentNode.dataset.id);
@@ -78,9 +130,13 @@ function editUser(event) {
   userList.setAttribute('title', "Person's details");
   userList.addEventListener('submit', saveChanges)
 
+  const header = document.createElement('h2');
+  header.textContent = `Edit details`;
+  userList.appendChild(header);
+
   const avatar = document.createElement('img');
   avatar.setAttribute('id', `avatar${user.id}`);
-  //vatar.setAttribute('src', `http://placekitten.com/g/200/300`);
+  //avatar.setAttribute('src', `http://placekitten.com/g/200/300`);
   getAvatar(user.id);
   userList.appendChild(avatar);
 
@@ -119,6 +175,90 @@ function editUser(event) {
   `;
   userList.appendChild(website);
 
+  const address = document.createElement('div');
+  address.innerHTML = `
+  <label for="address">Address</label> <br>
+  <input type="text" id="address" name="address" value="Address" disabled>
+  `;
+  userList.appendChild(address);
+
+  const street = document.createElement('div');
+  street.innerHTML = `
+  <label for="street">Street</label> <br>
+  <input type="text" id="street" name="street" value="${user.address.street}">
+  `;
+  userList.appendChild(street);
+
+  const suite = document.createElement('div');
+  suite.innerHTML = `
+  <label for="suite">suite</label> <br>
+  <input type="text" id="suite" name="suite" value="${user.address.suite}">
+  `;
+  userList.appendChild(suite);
+
+  const city = document.createElement('div');
+  city.innerHTML = `
+  <label for="city">Street</label> <br>
+  <input type="text" id="city" name="city" value="${user.address.city}">
+  `;
+  userList.appendChild(city);
+
+  const zipcode = document.createElement('div');
+  zipcode.innerHTML = `
+  <label for="zipcode">Street</label> <br>
+  <input type="text" id="zipcode" name="zipcode" value="${user.address.zipcode}">
+  `;
+  userList.appendChild(zipcode);
+
+  const geo = document.createElement('div');
+  geo.innerHTML = `
+  <label for="geo">Geolocation</label> <br>
+  <input type="text" id="geo" name="geo" value="Geolocation" disabled>
+  `;
+  userList.appendChild(geo);
+
+  const lat = document.createElement('div');
+  lat.innerHTML = `
+  <label for="lat">Latitude</label> <br>
+  <input type="text" id="lat" name="lat" value="${user.address.geo.lat}">
+  `;
+  userList.appendChild(lat);
+
+  const lng = document.createElement('div');
+  lng.innerHTML = `
+  <label for="lng">Longtitude</label> <br>
+  <input type="text" id="lng" name="lng" value="${user.address.geo.lng}">
+  `;
+  userList.appendChild(lng);
+
+  const company = document.createElement('div');
+  company.innerHTML = `
+  <label for="company">Company</label> <br>
+  <input type="text" id="company" name="company" value="Company" disabled>
+  `;
+  userList.appendChild(company);
+
+  const companyName = document.createElement('div');
+  companyName.innerHTML = `
+  <label for="companyName">Company name</label> <br>
+  <input type="text" id="companyName" name="companyName" value="${user.company.name}">
+  `;
+  userList.appendChild(companyName);
+
+  const catchPhrase = document.createElement('div');
+  catchPhrase.innerHTML = `
+  <label for="catchPhrase">Catch phrase</label> <br>
+  <input type="text" id="catchPhrase" name="catchPhrase" value="${user.company.catchPhrase}">
+  `;
+  userList.appendChild(catchPhrase);
+
+  const bs = document.createElement('div');
+  bs.innerHTML = `
+  <label for="bs">Bs</label> <br>
+  <input type="text" id="bs" name="bs" value="${user.company.bs}">
+  `;
+  userList.appendChild(bs);
+
   const saveUser = document.createElement('input');
   saveUser.setAttribute('type', 'submit');
   saveUser.setAttribute('value', 'Save changes');
@@ -135,9 +275,59 @@ function saveChanges(event) {
   const updatedUser = {};
   updatedUser.id = userID;
   for (const input of inputs) {
-    if (input.id) {
-      updatedUser[input.id] = input.value;
-    };
+    switch (input.id) {
+      case 'name':
+        updatedUser.name = input.value;
+        break;
+      case 'username':
+        updatedUser.username = input.value;
+        break;
+      case 'email':
+        updatedUser.email = input.value;
+        break;
+      case 'phone':
+        updatedUser.phone = input.value;
+        break;
+      case 'website':
+        updatedUser.website = input.value;
+        break;
+      case 'address':
+        updatedUser.address = {};
+        break;
+      case 'street':
+        updatedUser.address.street = input.value;
+        break;
+      case 'suite':
+        updatedUser.address.suite = input.value;
+        break;
+      case 'city':
+        updatedUser.address.city = input.value;
+        break;
+      case 'zipcode':
+        updatedUser.address.zipcode = input.value;
+        break;
+      case 'geo':
+        updatedUser.address.geo = {};
+        break;
+      case 'lat':
+        updatedUser.address.geo.lat = input.value;
+        break;
+      case 'lng':
+        updatedUser.address.geo.lng = input.value;
+        break;
+      case 'company':
+        updatedUser.company = {};
+        break;
+      case 'companyName':
+        updatedUser.company.name = input.value;
+        break;
+      case 'catchPhrase':
+        updatedUser.company.catchPhrase = input.value;
+        break;
+      case 'bs':
+        updatedUser.company.bs = input.value;
+        break;
+    }
   };
   showSpinner(`#${event.target.id}`);
 
@@ -151,20 +341,16 @@ function saveChanges(event) {
     .then(response => response.json())
     .then(json => {
       console.log(json);
-       showSpinner(`#${event.target.id}`);
+      showSpinner(`#${event.target.id}`);
     })
-
-
 }
 
 //!function DeleteUser
 function deleteUser(event) {
   event.preventDefault();
   showSpinner(`#${event.target.parentNode.id}`);
-
   const userList = document.querySelector(`#${event.target.parentNode.id}`);
-
-  const id = event.target.parentNode.id.replace('#user', '');
+  const id = event.target.parentNode.dataset.id;
   fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
     method: 'DELETE'
   })
@@ -176,65 +362,25 @@ function deleteUser(event) {
         console.log(`Error: ${response.status}`);
       }
     })
-
-
-  //console.log(event.target.parentNode.dataset.id);
 }
 
-
-// let output = '<h2>Users</h2>';
-// users.forEach(user => {
-//   output += `
-//   <ul title="Person's details">
-//   <li>${user.id}</li>
-//   <li>${user.name}</li>
-//   <li>${user.username}</li>
-//   <li>${user.email}</li>
-//   <li>${user.phone}</li>
-//   <li>${user.website}</li>
-//   <button type="button" class="btn btn-success editBtn editPersonal">Edit</button>
-// </ul>
-// <ul title="Address">
-//   <li>${user.address.street}</li>
-//   <li>${user.address.suite}</li>
-//   <li>${user.address.city}</li>
-//   <li>${user.address.zipcode}</li>
-//   <button type="button" class="btn btn-success editBtn editAdress">Edit</button>
-// </ul>
-// <ul title="Geo">
-//   <li>${user.address.geo.lat}</li>
-//   <li>${user.address.geo.lng}</li>
-//   <button type="button" class="btn btn-success editBtn editGeo">Edit</button>
-// </ul>
-
-// <ul title="Company">
-//   <li>${user.company.name}</li>
-//   <li>${user.company.catchPhrase}</li>
-//   <li>${user.company.bs}</li>
-//   <button type="button" class="btn btn-success editBtn editCompany">Edit</button>
-// </ul>
-// <button type="button" class="btn btn-danger deleteBtn">Delete</button>
-//   `;
-
-// });
-
-// document.querySelectorAll('.editBtn').forEach(node => node.addEventListener('click', editUser));
 //! function ShowPosts
 function showPosts(event) {
-  document.querySelector('#root').style.display = 'none';
+  showSpinner('#root')
+  document.querySelector('#root').innerHTML = '';
   fetch(`https://jsonplaceholder.typicode.com/posts?userId=${event.target.parentNode.dataset.id}`)
     .then(response => response.json())
     .then(posts => userPosts(posts))
 }
 
 //! function userPosts
-function userPosts(data) {
+function userPosts(posts) {
   let container = document.createElement('div');
-  container.setAttribute('id', `user${data[0].userId}_posts`);
+  container.setAttribute('id', `user${posts[0].userId}_posts`);
   document.body.appendChild(container);
-  location.hash = `#user${data[0].userId}_posts`;
+  location.hash = `#user${posts[0].userId}_posts`;
 
-  data.forEach(post => {
+  posts.forEach(post => {
     const article = document.createElement('article');
     article.setAttribute('id', `post${post.id}`);
     article.innerHTML = `<h3>Post ${post.id}: </h3>`;
@@ -258,39 +404,30 @@ function userComments(article) {
     .then(response => response.json())
     .then(comments => {
       const content = document.createElement('div');
-      content.setAttribute('class', 'comments');
+
       comments.forEach(comment => {
         const container = document.createElement('div');
-        container.setAttribute('class', 'container');
         container.innerHTML = `<h4>Comment ${comment.id}: </h4>`;
 
         const nameDiv = document.createElement('div');
-        nameDiv.setAttribute('class', 'name');
         nameDiv.textContent = `Name: ${comment.name}`;
         container.appendChild(nameDiv);
 
         const emailDiv = document.createElement('div');
-        emailDiv.setAttribute('class', 'email');
         emailDiv.textContent = `Email: ${comment.email}`;
         container.appendChild(emailDiv);
 
         const text = document.createElement('p');
-        text.setAttribute('class', 'text');
         text.textContent = comment.body;
         container.appendChild(text);
 
         article.appendChild(container);
+        showSpinner('#root')
       });
     })
 }
 
-
-
-//   })
-
-//   root.appendChild(userList);
-// }
-
+//! function showSpinner
 function showSpinner(id) {
   if (!document.querySelector('.spinner')) {
     const container = document.querySelector(id);
@@ -303,7 +440,7 @@ function showSpinner(id) {
   }
 }
 
-
+//! function getAvatar
 function getAvatar(userId) {
   fetch('https://api.thecatapi.com/v1/images/search')
     .then(response => response.json())
@@ -312,69 +449,7 @@ function getAvatar(userId) {
       avatar.setAttribute('src', `${result[0].url}`);
       avatar.setAttribute('style', `
         max-width: 250px;
+        background:url('img/spinner.gif') center center no-repeat;
       `);
     });
 }
-
-
-
-
-// function editUser(event) {
-
-//   const userID = event.target.parentNode.childNodes[1].innerText;
-//   const user = users[userID];
-//   let output;
-//   if (event.target.classList.contains('editPersonal')) {
-//     output = `
-//     <form id="personal" class="form" >
-
-//     <ul title="Person's details">
-
-//       <li>
-//         <label for="id">Id</label>
-//         <input type="text" id="id" name="id" value="${user.id}" disabled>
-//       </li>
-
-//       <li>
-//         <label for="name">Name</label>
-//         <input type="text" id="name" name="name" value="${user.name}">
-//       </li>
-
-//       <li>
-//         <label for="name">User Name</label>
-//         <input type="text" id="username" name="username" value="${user.username}">
-//       </li>
-
-//       <li>
-//         <label for="name">Email</label>
-//         <input type="text" id="email" name="email" value="${user.email}">
-//       </li>
-
-//       <li>
-//         <label for="name">Email</label>
-//         <input type="text" id="email" name="email" value="${user.phone}">
-//       </li>
-
-//       <li>
-//         <label for="name">Email</label>
-//         <input type="text" id="email" name="email" value="${user.website}">
-//       </li>
-
-//       <input type="submit" value="Submit">
-//   </form>
-//     `
-//   userlist.innerHTML = output;
-
-//   document.querySelector('.form').addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     console.log(e);
-
-//     <input type="submit" value="Submit">
-//     <button type="button" class="btn btn-success saveBtn">Save</button>
-//     <button type="button" class="btn btn-success backBtn">Back</button>
-//   </ul>
-
-
-
-
-
