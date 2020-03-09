@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <script src="https://kit.fontawesome.com/24e3797245.js"
+          crossorigin="anonymous"></script>
+  <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+  <div id="illustration"></div>
+  <div class="container">
+    <header class="header">
+      <h1>Let’s play</h1>
+      <div class="rules">
+        <h2>Disclaimer</h2>
+        <p>To make this homework, I've partially reused code which is available at my <a
+             href="https://vberestovskyi.github.io/rps-game/">GitHub page</a>. I've built it a while ago following Brad
+          Travercy's tutorial</p>
+        <hr>
+        <p>A famous kid game! Everybody knows the rules:</p>
+        <p>Scissors beats a paper</p>
+        <p>Paper beats rock</p>
+        <p>Rock beats scissors</p>
+      </div>
+      <button class="restart-btn"
+              id="restart">RESET</button>
+      <div class="score"
+           id="score">
+        <p>Player: 0</p>
+        <p>Computer: 0</p>
+      </div>
+    </header>
+    <h2>Make Your Choice</h2>
+    <div class="choices">
+      <i id="rock"
+         class="choice fas fa-hand-rock "></i>
+      <i id="paper"
+         class="choice fas fa-hand-paper "></i>
+      <i id="scissors"
+         class="choice fas fa-hand-scissors "></i>
+    </div>
+  </div>
+  <div class="modal">
+    <div id="result"
+         class="modal-content"></div>
+  </div>
+</body>
+
+</html>
