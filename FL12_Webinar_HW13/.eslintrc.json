@@ -11,8 +11,12 @@
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     },
     "rules": {
+        "require-jsdoc": "off",
+        "linebreak-style":"off",
+        "max-len":"off"
     }
 }
