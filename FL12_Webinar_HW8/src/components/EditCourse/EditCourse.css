@@ -1,0 +1,75 @@
+.course {
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  background: #fff;
+  border-radius: 0.5rem;
+}
+
+.inputs {
+  width: 30rem;
+  margin: 0 auto;
+  color: #A9A9A9;
+}
+
+.name input,
+.description textarea {
+  width: 30rem;
+  resize: none;
+}
+
+.duration input,
+.authors input,
+.date input {
+  width: 15rem;
+}
+
+.duration input,
+.authors input,
+.date input,
+.name input,
+.description textarea {
+  padding-left: 0.5rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d3d3d3;
+  margin: 0.3rem auto 1.5rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2rem;
+}
+
+.btn-save {
+  width: 40%;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: linear-gradient(#52E8DB, #18ACDB);
+  box-shadow: 0 0 4px 1px #33ecd8;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  width: 40%;
+  color: #A9A9A9;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem;
+  ;
+}
+
+.name::first-letter,
+.description::first-letter,
+.duration::first-letter,
+.authors::first-letter,
+.date::first-letter {
+  text-transform: uppercase;
+}

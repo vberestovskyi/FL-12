@@ -1,0 +1,33 @@
+[{
+    "id": 1,
+    "name": "Prerequisites",
+    "description": "Webpack, Angular CLI, TypeScript.",
+    "duration": "01h 34min",
+    "authors": "Elvis",
+    "date": "2018-02-18"
+  },
+  {
+    "id": 2,
+    "name": "Components",
+    "description": "Components lifecycle, templste DSL ",
+    "duration": "01h 34min",
+    "authors": "Bob",
+    "date": "2018-02-01"
+  },
+  {
+    "id": 3,
+    "name": "Directives + Pipes",
+    "description": "Directives, types of directives, built-in directives, custom directive, pipes, built-in pipes, custom pipes, async pipe...",
+    "duration": "01h 34min",
+    "authors": "Pretender",
+    "date": "2018-01-15"
+  },
+  {
+    "id": 4,
+    "name": "Modules & Services",
+    "description": "Services, DI, modules, lazy Loading.",
+    "duration": "01h 34min",
+    "authors": "Avenger",
+    "date": "2017-12-28"
+  }
+]

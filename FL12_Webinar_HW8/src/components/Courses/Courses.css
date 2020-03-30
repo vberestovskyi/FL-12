@@ -1,0 +1,86 @@
+.courses {
+  height: auto;
+  min-height: 5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 10% 15% auto 10% 5%;
+  grid-column-gap: 2rem;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 78%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.btn-add {
+  width: 20%;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(#33ecd8, #0995ee);
+  box-shadow: 0 0 4px 1px #33ecd8;
+}
+
+.edit-container {
+  font-size: 1.5rem;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.edit-menu {
+  width: 10rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px #A9A9A9;
+  border-radius: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
+.edit-content {
+  width: 2rem;
+  height: 2rem;
+  right: 2rem;
+  bottom: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.edit-content::after {
+  content: "";
+  bottom: 0;
+  left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 0 6px #d3d3d3;
+  transform-origin: bottom left;
+  transform: rotate(45deg);
+}
+
+.icon {
+  margin-right: 1em;
+}
+
+a {
+  text-decoration: none;
+}
